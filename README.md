@@ -44,3 +44,5 @@ The main objectives of the project for each management application are as follow
 - Create pages to create and modify user account passwords.
 
 *Note: The technologies/frameworks mentioned here, such as Struts, Hibernate, JQuery, and Spring, will be used in the implementation of the Sales Management Application.*
+  ![UseCaseJ2EE](https://github.com/ISMAILIZakariae/RayBan-Point-of-Sale-System-J2EE-Spring-Struts/assets/110783459/9a74874c-ae5b-4939-9f56-8d7b157d9eb8)![ClassJ2EE](https://github.com/ISMAILIZakariae/RayBan-Point-of-Sale-System-J2EE-Spring-Struts/assets/110783459/3ec41398-5083-4989-b5a5-fbce3412b4b8)
+![SeqJ2EE](https://github.com/ISMAILIZakariae/RayBan-Point-of-Sale-System-J2EE-Spring-Struts/assets/110783459/d012af96-dc75-4709-ba05-ac82ed7f7c18)
