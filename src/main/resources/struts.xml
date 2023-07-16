@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+    
+	<!-- Default action when no action is specified -->
+    <default-action-ref name="index"></default-action-ref>
+    
+	<!-- Action for displaying the login page -->
+    <action name="index">
+    	<result>views/Login.jsp</result>
+    </action>
+      
+	<!-- Action for handling the login process -->
+    <action name = "loginaction" class = "org.sid.web.LoginAction" method = "execute">
+		<result name = "success" type="redirectAction">produits</result>
+		<result name = "error">/views/Login.jsp</result>
+    </action>
+      
+    <!-- Action for handling user logout -->
+    <action name = "logout" class = "org.sid.web.LoginAction" method = "logout">
+    	<result name = "success">/views/Login.jsp</result>
+    </action>
+ 
+ 	<!-- Action for adding a new user -->
+	<action name = "addUser" class = "org.sid.web.LoginAction" method = "addUsers">    
+    	<result name = "success">views/Login.jsp</result>
+        <result name = "error">views/register.jsp</result>
+    </action>
+
+	<!-- Action for handling password recovery -->
+    <action name="forgot" class="org.sid.web.LoginAction" method="forgot">
+    	<result name="success">views/forgot.jsp</result>
+    </action>
+    
+    <!-- Action for updating user password -->
+	<action name = "updateUser" class = "org.sid.web.LoginAction" method = "forgotPass">    
+    	<result name = "success">views/Login.jsp</result>
+        <result name = "fail" >views/forgot.jsp</result>
+    </action>
+    
+    <!-- Action for updating password -->
+    <action name = "updatePass" class = "org.sid.web.LoginAction" method = "updatePas">    
+    	<result name = "success">views/modifierPass.jsp</result>
+    </action>
+    
+    <!-- Action for saving password changes -->
+    <action name="savePass" class="org.sid.web.LoginAction" method="savePass">
+   		<result name="success">views/modifierPass.jsp</result>
+    	<result name="error">views/modifierPass.jsp</result>
+    </action>
+    
+    <!-- Action for displaying the registration page -->
+    <action name="New" class="org.sid.web.LoginAction" method="New">
+    	<result name="success">views/register.jsp</result>
+    </action>
+    
+     <!-- Action for displaying the product store page -->
+    <action name="produits" class="org.sid.web.ProduitAction" method="index">
+    	<result name="success">views/store.jsp</result>
+    </action>
+    
+    <!-- Action for displaying the user's cart -->
+    <action name="carts" class="org.sid.web.CartAction" method="index">
+    	<result name="success">views/Cart.jsp</result>
+    </action>
+    
+    <!-- Action for displaying the user's orders -->
+    <action name="commandes" class="org.sid.web.CartAction" method="commandes">
+    	<result name="success">views/Comandes.jsp</result>
+    </action>
+    
+     <!-- Action for redirecting to the product store page -->
+    <action name="indexHome" class="org.sid.web.ProduitAction" method="indexH">
+    	<result name="success" type="redirectAction">produits</result>
+    </action>
+    
+     <!-- Action for generating a PDF -->
+    <action name="pdf" class="org.sid.web.ProduitAction" method="indexP">
+    	<result name="success" type="redirectAction">produits</result>
+    </action>
+    
+    <!-- Action for adding a product to the cart -->
+    <action name="addToCart" class="org.sid.web.CartAction" method="ajouter">
+   		<result name="success" type="redirectAction">
+	        <param name="actionName">produits</param>
+        	<param name="message">${message}</param>
+	    </result>
+	</action>	
+	
+	<!-- Action for placing an order -->
+	<action name="commander" class="org.sid.web.CartAction" method="commander">
+    	<result name="success">views/facture.jsp</result>
+    </action>
+    
+    <!-- Action for removing a product from the cart -->
+	<action name="removeFromCart" class="org.sid.web.CartAction" method="removeFromCart">
+	    <result name="success" type="redirectAction">
+	        <param name="actionName">produits</param>
+        	<param name="message">${message}</param>
+	    </result>
+	</action>
+
+    </package>
+</struts>
